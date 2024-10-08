@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main.xml"
+    app:startDestination="@id/home_fragment_dest">
+
+    <fragment
+        android:id="@+id/home_fragment_dest"
+        android:name="com.hoc.comicapp.ui.home.HomeFragment"
+        android:label="Home page">
+
+        <action
+            android:id="@+id/action_home_fragment_dest_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment" />
+
+        <action
+            android:id="@+id/action_home_fragment_dest_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_home_fragment_dest_to_favoriteComicsFragment"
+            app:destination="@id/favoriteComicsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/settings_fragment_dest"
+        android:name="com.hoc.comicapp.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+
+    <fragment
+        android:id="@+id/comicDetailFragment"
+        android:name="com.hoc.comicapp.ui.detail.ComicDetailFragment"
+        android:label="{title}">
+
+        <argument
+            android:name="comic"
+            app:argType="com.hoc.comicapp.navigation.Arguments$ComicDetailArgs"
+            app:nullable="false" />
+
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="isDownloaded"
+            app:argType="boolean"
+            app:nullable="false" />
+
+        <argument
+            android:name="transitionName"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_comicDetailFragment_to_chapterDetailFragment"
+            app:destination="@id/chapterDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_comicDetailFragment_to_categoryDetailFragment"
+            app:destination="@id/categoryDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_comicDetailFragment_self"
+            app:destination="@id/comicDetailFragment"
+            app:popUpTo="@+id/comicDetailFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.hoc.comicapp.ui.category.CategoryFragment"
+        android:label="All categories">
+
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryDetailFragment"
+            app:destination="@id/categoryDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchComicFragment"
+        android:name="com.hoc.comicapp.ui.search_comic.SearchComicFragment"
+        android:label="Search comic">
+        <action
+            android:id="@+id/action_searchComicFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chapterDetailFragment"
+        android:name="com.hoc.comicapp.ui.chapter_detail.ChapterDetailFragment"
+        android:label="Chapter detail">
+
+        <argument
+            android:name="chapter"
+            app:argType="com.hoc.comicapp.navigation.Arguments$ChapterDetailArgs"
+            app:nullable="false" />
+
+        <argument
+            android:name="isDownloaded"
+            app:argType="boolean"
+            app:nullable="false" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/downloadedComicsFragment"
+        android:name="com.hoc.comicapp.ui.downloaded_comics.DownloadedComicsFragment"
+        android:label="Downloaded comics">
+        <action
+            android:id="@+id/action_downloadedComicsFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/downloadingChaptersFragment"
+        android:name="com.hoc.comicapp.ui.downloading_chapters.DownloadingChaptersFragment"
+        android:label="Downloading" />
+
+    <fragment
+        android:id="@+id/categoryDetailFragment"
+        android:name="com.hoc.comicapp.ui.category_detail.CategoryDetailFragment"
+        android:label="{title}">
+
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="category"
+            app:argType="com.hoc.comicapp.navigation.Arguments$CategoryDetailArgs"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/action_categoryDetailFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.hoc.comicapp.ui.login.LoginFragment"
+        android:label="Login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.hoc.comicapp.ui.register.RegisterFragment"
+        android:label="Register" />
+
+    <fragment
+        android:id="@+id/favoriteComicsFragment"
+        android:name="com.hoc.comicapp.ui.favorite_comics.FavoriteComicsFragment"
+        android:label="Favorites">
+
+        <action
+            android:id="@+id/action_favoriteComicsFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+</navigation>

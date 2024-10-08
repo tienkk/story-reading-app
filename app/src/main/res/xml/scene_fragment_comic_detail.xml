@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@layout/fragment_comic_detail_end"
+        app:constraintSetStart="@layout/fragment_comic_detail"
+        app:duration="1000"
+        app:motionInterpolator="linear">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@id/recycler_chapters"
+            app:onTouchUp="autoComplete"
+            app:moveWhenScrollAtTop="true"
+            app:touchAnchorSide="top" />
+    </Transition>
+
+</MotionScene>
